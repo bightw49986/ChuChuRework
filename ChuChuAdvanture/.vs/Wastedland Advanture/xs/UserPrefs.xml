@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{CDBB9220-3184-A939-F6C5-26A4FB5952F1}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/App/Gravity/GravitySystem.cs">
+    <Files>
+      <File FileName="Assets/Scripts/App/Gravity/GravitySystem.cs" Line="10" Column="9" />
+      <File FileName="Assets/Scripts/Framework/CGameEventSystem.cs" Line="7" Column="2" />
+      <File FileName="Assets/Scripts/Framework/Scene/CSceneManager.cs" Line="36" Column="1" />
+      <File FileName="Assets/Scripts/StringTable.cs" Line="22" Column="79" />
+      <File FileName="Assets/Scripts/Framework/CMain.cs" Line="32" Column="37" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
