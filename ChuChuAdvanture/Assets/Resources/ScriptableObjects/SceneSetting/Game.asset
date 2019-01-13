@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: Game
   m_EditorClassIdentifier: 
   ID: 3
-  UIRequests: []
+  UIConfig: {fileID: 0}
+  DynamicObjectConfig: {fileID: 0}
+  FXConfig: {fileID: 0}
+  MonsterConfig: {fileID: 0}
+  ApplyGravity: 1
+  ActivatePlayer: 1

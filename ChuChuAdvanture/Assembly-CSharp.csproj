@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{CDBB9220-3184-A939-F6C5-26A4FB5952F1}</ProjectGuid>
+    <ProjectGuid>{BA84CAEA-15B0-B689-11B7-E09B9291B226}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -73,28 +73,26 @@
     <Compile Include="Assets\Scripts\Framework\CMain.cs" />
     <Compile Include="Assets\Scripts\Framework\FX\CFXSystem.cs" />
     <Compile Include="Assets\Scripts\Framework\FX\FXController.cs" />
-    <Compile Include="Assets\Scripts\Framework\FX\FXEvent.cs" />
-    <Compile Include="Assets\Scripts\Framework\Scene\CSceneManager.cs" />
-    <Compile Include="Assets\Scripts\Framework\Scene\SceneSetting.cs" />
+    <Compile Include="Assets\Scripts\Framework\SceneAndObject\CSceneManager.cs" />
+    <Compile Include="Assets\Scripts\Framework\SceneAndObject\SceneSetting.cs" />
     <Compile Include="Assets\Scripts\Framework\UI\CUIManager.cs" />
     <Compile Include="Assets\Scripts\Framework\UI\UIComponent.cs" />
-    <Compile Include="Assets\Scripts\Framework\UI\UISet.cs" />
     <Compile Include="Assets\Scripts\StringTable.cs" />
     <None Include="Assets\Art Asset\OldSceneArt\Top-Down caves\Shaders\TerrainSurface.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/yiru/Unity/Wastedland Advanture/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/yiru/Unity/Wastedland Advanture/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/yiru/Unity/Wastedland Advanture/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/yiru/Unity/Wastedland Advanture/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/yiru/Unity/Wastedland Advanture/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -304,19 +302,19 @@
       <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>/Users/yiru/Unity/Wastedland Advanture/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>/Users/yiru/Unity/Wastedland Advanture/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/yiru/Unity/Wastedland Advanture/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/yiru/Unity/Wastedland Advanture/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/yiru/Unity/Wastedland Advanture/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

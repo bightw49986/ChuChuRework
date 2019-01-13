@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using ChuChu.Framework.SceneManagement;
+using ChuChu.Framework.SceneAndObjectManagement;
 
 
 namespace ChuChu.Framework
@@ -37,8 +37,8 @@ namespace ChuChu.Framework
 
         private void Init()
         {
-            GameObject go = Resources.Load(StringTable.UIStringTable.RootCanvasPath) as GameObject;
-            Instantiate(go);
+            GameObject uiManager = Resources.Load(StringTable.UIStringTable.RootCanvasPath) as GameObject;
+            Instantiate(uiManager);
             CSceneManager.Instance.Init();
             CGameEventSystem.General.OnAppInited();
             mIsFirstEnterApp = false;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: _Default
   m_EditorClassIdentifier: 
   ID: 0
-  UIRequests:
-  - UIObject: {fileID: 1687635708033324659, guid: 64f5d27892c2b443ea3e6b270ce22b31,
-      type: 3}
-    Count: 3
+  UIConfig: {fileID: 0}
+  DynamicObjectConfig: {fileID: 0}
+  FXEventConfig: {fileID: 0}
+  ApplyGravity: 0
