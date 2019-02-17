@@ -19,17 +19,18 @@ namespace ChuChu.Framework.Scene
         #endregion
 
         #region Members
-        private SceneSetting m_DefaultSceneSetting;
+        private SceneSettingConfiguration m_SceneConfig;
         #endregion
 
         #region Properties
-        public string CurrentScene { get { return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name; } }
+        public string ActiveScene { get { return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name; } }
+        public ChuChuScene CurrentScene { get { return GetSceneByName(ActiveScene); } }
         #endregion
 
         #region Life cycle and event stuff
-        public void Init()
+        public void Init(SceneSettingConfiguration config)
         {
-            m_DefaultSceneSetting = Resources.Load(StringTable.SceneSetting.Default) as SceneSetting;
+            m_SceneConfig = config;
             UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
@@ -47,13 +48,13 @@ namespace ChuChu.Framework.Scene
         #region Public Methods
         public void LoadScene(ChuChuScene scene)
         {
-            SceneSetting sceneSetting = LoadSceneSetting(scene);
+            SceneSettings sceneSetting = LoadSceneSetting(scene);
             if (Main.Instance.IsFirstEnterApp)
             {
                 //讀UI
-                if (sceneSetting.UIConfig != null && sceneSetting.UIConfig.IsEmpty == false)
+                if (sceneSetting.UISetting != null && sceneSetting.UISetting.IsEmpty == false)
                 {
-                    foreach (var obj in sceneSetting.UIConfig.ObjectSets)
+                    foreach (var obj in sceneSetting.UISetting.ObjectSets)
                     {
                         for (int i = 0; i < obj.Amount - 1; i++)
                         {
@@ -63,7 +64,7 @@ namespace ChuChu.Framework.Scene
                                 go = UnityEngine.Object.Instantiate(obj.Prefab.GameObject, uiManager.transform);
                             else
                             {
-                                go = UnityEngine.Object.Instantiate(obj.Prefab.GameObject, UIManager.UIRoot.transform);
+                                go = UnityEngine.Object.Instantiate(obj.Prefab.GameObject, UIManager.Instance.transform);
                             }
                             go.SetActive(obj.ActiveOnCreate);
                         }
@@ -71,9 +72,9 @@ namespace ChuChu.Framework.Scene
                 }
                 //讀動態物件
                 //讀特效
-                if (sceneSetting.FXConfig != null && sceneSetting.FXConfig.IsEmpty == false)
+                if (sceneSetting.FXSetting != null && sceneSetting.FXSetting.IsEmpty == false)
                 {
-                    foreach (var obj in sceneSetting.FXConfig.ObjectSets)
+                    foreach (var obj in sceneSetting.FXSetting.ObjectSets)
                     {
                         for (int i = 0; i < obj.Amount - 1; i++)
                         {
@@ -96,20 +97,32 @@ namespace ChuChu.Framework.Scene
         #endregion
 
         #region Private Methods
-        private SceneSetting LoadSceneSetting(ChuChuScene scene)
+        private SceneSettings LoadSceneSetting(ChuChuScene scene)
         {
             switch (scene)
             {
                 case ChuChuScene.Title:
-                    return Resources.Load(StringTable.SceneSetting.Title) as SceneSetting;
+                    return m_SceneConfig.Title;
                 case ChuChuScene.Loading:
-                    return Resources.Load(StringTable.SceneSetting.Loading) as SceneSetting;
+                    return m_SceneConfig.Loading;
                 case ChuChuScene.Game:
-                    return Resources.Load(StringTable.SceneSetting.Game) as SceneSetting;
+                    return m_SceneConfig.Game;
 
                 default:
-                    return m_DefaultSceneSetting;
+                    return m_SceneConfig.Default;
             }
+        }
+
+        public ChuChuScene GetSceneByName(string name)
+        {
+            foreach (var e in (ChuChuScene[])Enum.GetValues(typeof(ChuChuScene)))
+            {
+                if (e.ToString() == name)
+                {
+                    return e;
+                }
+            }
+            return ChuChuScene.None;
         }
         #endregion
 

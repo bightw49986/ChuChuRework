@@ -8,13 +8,9 @@ using UnityEngine;
 /// </summary>
 public static class StringTable
 {
-    public struct SceneSetting
+    public struct SceneConfig
     {
-        public static readonly string Default = "ScriptableObjects/SceneSetting/_Default";
-
-        public static readonly string Title = "ScriptableObjects/SceneSetting/Title";
-        public static readonly string Loading = "ScriptableObjects/SceneSetting/Loading";
-        public static readonly string Game = "ScriptableObjects/SceneSetting/Game"; 
+        public static readonly string DefaultConfig = "ScriptableObjects/Scene/Config/_Default";
     }
 
     public struct UI

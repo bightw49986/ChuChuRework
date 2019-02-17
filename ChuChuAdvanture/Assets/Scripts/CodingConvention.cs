@@ -1,7 +1,6 @@
 ﻿namespace example
 {
-    public class CodingConvention
-    {
+
         #region Members
 
         #endregion
@@ -21,5 +20,5 @@
         #region Private Methods
 
         #endregion
-    }
+
 }

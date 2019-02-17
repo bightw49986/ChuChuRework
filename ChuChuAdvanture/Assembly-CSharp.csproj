@@ -79,7 +79,8 @@
     <Compile Include="Assets\Scripts\Framework\Physic\GroundCheckReceiver.cs" />
     <Compile Include="Assets\Scripts\Framework\Physic\GroundCheckSystem.cs" />
     <Compile Include="Assets\Scripts\Framework\Scene\SceneManager.cs" />
-    <Compile Include="Assets\Scripts\Framework\Scene\SceneSetting.cs" />
+    <Compile Include="Assets\Scripts\Framework\Scene\SceneSettingConfiguration.cs" />
+    <Compile Include="Assets\Scripts\Framework\Scene\SceneSettings.cs" />
     <Compile Include="Assets\Scripts\Framework\UI\UIComponent.cs" />
     <Compile Include="Assets\Scripts\Framework\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\General.cs" />

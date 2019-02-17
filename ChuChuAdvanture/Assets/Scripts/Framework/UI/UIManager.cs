@@ -12,7 +12,7 @@ namespace ChuChu.Framework.UI
     public sealed class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
-        public static GameObject UIRoot;
+
 
         #region MonoBehaviorStuff
         private void Awake()
@@ -20,8 +20,7 @@ namespace ChuChu.Framework.UI
             if (Instance == null)
             {
                 Instance = this;
-                UIRoot = gameObject;
-                DontDestroyOnLoad(UIRoot);
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -41,10 +40,10 @@ namespace ChuChu.Framework.UI
         {
             StartCoroutine(OnShowAllCalled(sec));
         }
-        IEnumerator OnShowAllCalled(float sec)
+        IEnumerator OnShowAllCalled(float waitSec)
         {
-            if (sec > 0)
-                yield return new WaitForSeconds(sec);
+            if (waitSec > 0)
+                yield return new WaitForSeconds(waitSec);
                 GameEventSystem.Instance_UI.OnShowAllCalled();
         }
 
@@ -52,10 +51,10 @@ namespace ChuChu.Framework.UI
         {
             StartCoroutine(OnHideAllCalled(sec));
         }
-        IEnumerator OnHideAllCalled(float sec)
+        IEnumerator OnHideAllCalled(float waitSec)
         {
-            if (sec > 0)
-                yield return new WaitForSeconds(sec);
+            if (waitSec > 0)
+                yield return new WaitForSeconds(waitSec);
             GameEventSystem.Instance_UI.OnHideAllCalled();
         }
 

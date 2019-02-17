@@ -12,11 +12,16 @@ namespace ChuChu.Framework
     /// </summary>
     public class Main : MonoBehaviour
     {
-        public static Main Instance;
+        #region Members
+        [HideInInspector] public static Main Instance;
+        [SerializeField][Tooltip("Assign scene config to tell SceneManager what setting should it apply for every scene.")]private SceneSettingConfiguration m_SceneConfig;
+        #endregion
 
-        public bool IsFirstEnterApp { get { return mIsFirstEnterApp; } }
-        private bool mIsFirstEnterApp = true;
+        #region Properties
+        public bool IsFirstEnterApp { get; private set; }
+        #endregion
 
+        #region MonoBehaviors
         private void Awake()
         {
             //Singleton.
@@ -31,17 +36,71 @@ namespace ChuChu.Framework
             }
             InitializeAllSystems();
         }
+        #endregion
 
+        #region Public Methods
+
+        #endregion
+
+        #region Private Methods
         private void InitializeAllSystems()
         {
+            InitSceneManager();
+            InitGameEventSystem();
+            InitUIManager();
+            IsFirstEnterApp = false;
+        }
+
+        /// <summary>
+        /// Initialize the Scene manager system.
+        /// </summary>
+        private bool InitSceneManager()
+        {
+            if (m_SceneConfig == null)
+            {
+                m_SceneConfig = Resources.Load(StringTable.SceneConfig.DefaultConfig) as SceneSettingConfiguration;
+                if (m_SceneConfig == null)
+                {
+                    Debug.LogError("Can't load default scene config!! Check if path was changed.");
+                    return false;
+                }
+            }
             SceneManager sceneManager = new SceneManager(); //SceneManager
-            sceneManager.Init();
+            sceneManager.Init(m_SceneConfig);
+            return true;
+        }
+
+        /// <summary>
+        /// Initialize the Game event system.
+        /// </summary>
+        private bool InitGameEventSystem()
+        {
             GameEventSystem gameEventSystem = new GameEventSystem(); //GameEventSystem
             gameEventSystem.Init();
+            return true;
+        }
+
+        /// <summary>
+        /// Initialize the UI system.
+        /// </summary>
+        private bool InitUIManager()
+        {
             GameObject uiManager = Resources.Load(StringTable.UI.RootCanvasPath) as GameObject; //UIManager
             Instantiate(uiManager);
-            mIsFirstEnterApp = false;
+            return true;
         }
+
+
+        #endregion
+
+
+
+
+
+
+
+
+
     }
 }
 
