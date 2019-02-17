@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using ChuChu.Framework.SceneAndObjectManagement;
+using ChuChu.Framework.Scene;
 using UnityEngine;
 
 
@@ -13,11 +13,11 @@ namespace ChuChu.Framework.FX
     /// <para></para>
     /// Remember to serialize the child class so that you can manage the callbacks in the inspector.
     /// </summary>
-    public class FXController : MonoBehaviour,IManageableObject
+    public class FXController : MonoBehaviour,IManageableResource
     {
         public List<FXController> SubControllers;
 
-        public ObjectFlag ObjectFlag { get { return ObjectFlag.FX; }}
+        public ResourceType ObjectFlag { get { return ResourceType.FX; }}
         public GameObject GameObject { get { return gameObject; }}
 
         public void FindSubControllers()

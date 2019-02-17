@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public static class StringTable
 {
-    public struct SceneSettingPath
+    public struct SceneSetting
     {
         public static readonly string Default = "ScriptableObjects/SceneSetting/_Default";
 
@@ -17,7 +17,7 @@ public static class StringTable
         public static readonly string Game = "ScriptableObjects/SceneSetting/Game"; 
     }
 
-    public struct UIStringTable
+    public struct UI
     {
         public static readonly string RootCanvasPath = "Prefabs/UI/Root Canvas";
     }

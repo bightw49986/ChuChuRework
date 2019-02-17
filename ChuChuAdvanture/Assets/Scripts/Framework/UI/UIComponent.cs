@@ -1,28 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ChuChu.Framework.SceneAndObjectManagement;
+using ChuChu.Framework.Scene;
 
 namespace ChuChu.Framework.UI
 {
     /// <summary>
     /// Base class of all UI components, this will be the controller for the UI element.
     /// </summary>
-    public abstract class UIComponent : MonoBehaviour,IManageableObject
+    public abstract class UIComponent : MonoBehaviour,IManageableResource
     {
-        public ObjectFlag ObjectFlag{ get { return ObjectFlag.UI; }}
+        public ResourceType ObjectFlag{ get { return ResourceType.UI; }}
         public GameObject GameObject { get { return GameObject; } }
 
         private void Awake()
         {
-            CGameEventSystem.UI.ShowAllCalled += Show;
-            CGameEventSystem.UI.HideAllCalled += Hide;
+            GameEventSystem.Instance_UI.ShowAllCalled += Show;
+            GameEventSystem.Instance_UI.HideAllCalled += Hide;
         }
 
         private void OnDestroy()
         {
-            CGameEventSystem.UI.ShowAllCalled -= Show;
-            CGameEventSystem.UI.HideAllCalled -= Hide;
+            GameEventSystem.Instance_UI.ShowAllCalled -= Show;
+            GameEventSystem.Instance_UI.HideAllCalled -= Hide;
         }
 
         public virtual void Show()

@@ -61,24 +61,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Art Asset\OldSceneArt\Ancient Environment\Tools_Scripts_Shaders\Terrain\ParallaxTerrain\CustomTerrainScript.cs" />
-    <Compile Include="Assets\Art Asset\OldSceneArt\Rock\Scenes\Textures\T4M\Scripts\T4MBillBObjSC.cs" />
-    <Compile Include="Assets\Art Asset\OldSceneArt\Rock\Scenes\Textures\T4M\Scripts\T4MLodObjSC.cs" />
-    <Compile Include="Assets\Art Asset\OldSceneArt\Rock\Scenes\Textures\T4M\Scripts\T4MObjSC.cs" />
-    <Compile Include="Assets\Art Asset\OldSceneArt\Rock\Scenes\Textures\T4M\Scripts\T4MPartSC.cs" />
-    <Compile Include="Assets\Art Asset\OldSceneArt\Rock\Scenes\Textures\T4M\Scripts\T4MPlantObjSC.cs" />
-    <Compile Include="Assets\Art Asset\OldSceneArt\shader\shaders\0000 ats V2 package\atsV2 UnityTerrainBump Package\CustomTerrainScriptAtsV2.cs" />
-    <Compile Include="Assets\Scripts\App\Gravity\GravitySystem.cs" />
-    <Compile Include="Assets\Scripts\Framework\CGameEventSystem.cs" />
-    <Compile Include="Assets\Scripts\Framework\CMain.cs" />
-    <Compile Include="Assets\Scripts\Framework\FX\CFXSystem.cs" />
+    <Compile Include="Assets\Scene Art Assets\OldSceneArt\Ancient Environment\Tools_Scripts_Shaders\Terrain\ParallaxTerrain\CustomTerrainScript.cs" />
+    <Compile Include="Assets\Scene Art Assets\OldSceneArt\Rock\Scenes\Textures\T4M\Scripts\T4MBillBObjSC.cs" />
+    <Compile Include="Assets\Scene Art Assets\OldSceneArt\Rock\Scenes\Textures\T4M\Scripts\T4MLodObjSC.cs" />
+    <Compile Include="Assets\Scene Art Assets\OldSceneArt\Rock\Scenes\Textures\T4M\Scripts\T4MObjSC.cs" />
+    <Compile Include="Assets\Scene Art Assets\OldSceneArt\Rock\Scenes\Textures\T4M\Scripts\T4MPartSC.cs" />
+    <Compile Include="Assets\Scene Art Assets\OldSceneArt\Rock\Scenes\Textures\T4M\Scripts\T4MPlantObjSC.cs" />
+    <Compile Include="Assets\Scene Art Assets\OldSceneArt\shader\shaders\0000 ats V2 package\atsV2 UnityTerrainBump Package\CustomTerrainScriptAtsV2.cs" />
+    <Compile Include="Assets\Scripts\CodingConvention.cs" />
     <Compile Include="Assets\Scripts\Framework\FX\FXController.cs" />
-    <Compile Include="Assets\Scripts\Framework\SceneAndObject\CSceneManager.cs" />
-    <Compile Include="Assets\Scripts\Framework\SceneAndObject\SceneSetting.cs" />
-    <Compile Include="Assets\Scripts\Framework\UI\CUIManager.cs" />
+    <Compile Include="Assets\Scripts\Framework\FX\FXSystem.cs" />
+    <Compile Include="Assets\Scripts\Framework\GameEventSystem.cs" />
+    <Compile Include="Assets\Scripts\Framework\Main.cs" />
+    <Compile Include="Assets\Scripts\Framework\Object\ObjectSystem.cs" />
+    <Compile Include="Assets\Scripts\Framework\Physic\GravityReceiver.cs" />
+    <Compile Include="Assets\Scripts\Framework\Physic\GravitySystem.cs" />
+    <Compile Include="Assets\Scripts\Framework\Physic\GroundCheckReceiver.cs" />
+    <Compile Include="Assets\Scripts\Framework\Physic\GroundCheckSystem.cs" />
+    <Compile Include="Assets\Scripts\Framework\Scene\SceneManager.cs" />
+    <Compile Include="Assets\Scripts\Framework\Scene\SceneSetting.cs" />
     <Compile Include="Assets\Scripts\Framework\UI\UIComponent.cs" />
+    <Compile Include="Assets\Scripts\Framework\UI\UIManager.cs" />
+    <Compile Include="Assets\Scripts\General.cs" />
     <Compile Include="Assets\Scripts\StringTable.cs" />
-    <None Include="Assets\Art Asset\OldSceneArt\Top-Down caves\Shaders\TerrainSurface.shader" />
+    <None Include="Assets\Scene Art Assets\OldSceneArt\Top-Down caves\Shaders\TerrainSurface.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/yiru/Unity/ChuChuRework/ChuChuAdvanture/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
