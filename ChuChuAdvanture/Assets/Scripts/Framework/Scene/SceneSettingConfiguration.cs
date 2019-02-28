@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ChuDebug;
 using UnityEngine;
 
 namespace ChuChu.Framework.Scene
 {
     [CreateAssetMenu(menuName = "ChuChu/Scene/SceneSettingConfiguration")]
+    [Debug(EDebugType.Scene)]
     public class SceneSettingConfiguration : ScriptableObject
     {
         #region Members

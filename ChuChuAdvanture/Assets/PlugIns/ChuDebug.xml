@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ChuDebug</name>
+    </assembly>
+    <members>
+        <member name="T:ChuDebug.CDebugCenter">
+            <summary>
+              <para>The manager class for ChuDebug system.</para>
+            </summary>
+        </member>
+        <member name="F:ChuDebug.CDebugCenter.Instance">
+            <summary>
+            The singleton instance of the debug center.
+            </summary>
+        </member>
+        <member name="F:ChuDebug.CDebugCenter.Run">
+            <summary>
+            Does the debug system exceute or not.
+            </summary>
+        </member>
+        <member name="F:ChuDebug.CDebugCenter.Types">
+            <summary>
+            The category filters of the debug center that decides which types of log will be showed on the console. 
+            </summary>
+        </member>
+        <member name="F:ChuDebug.CDebugCenter.ShowLabels">
+            <summary>
+            Decide which kinds of message will show with prefix label.
+            </summary>
+        </member>
+        <member name="F:ChuDebug.CDebugCenter.ShowMethodbase">
+            <summary>
+            Decide which kinds of message will show with suffix method messages.
+            </summary>
+        </member>
+        <member name="M:ChuDebug.CDebugCenter.DestoryDebugCenter">
+            <summary>
+            Destories the debug center and stop logging messages.
+            </summary>
+        </member>
+        <member name="M:ChuDebug.CDebugCenter.LogException(System.Exception,UnityEngine.Object)">
+            <summary>
+            <para>A variant of ILogHandler.LogFormat that logs an exception message.</para>
+            </summary>
+            <param name="exception">Runtime Exception.</param>
+            <param name="context">Object to which the message applies.</param>
+        </member>
+        <member name="M:ChuDebug.CDebugCenter.LogFormat(UnityEngine.LogType,UnityEngine.Object,System.String,System.Object[])">
+            <summary>
+              <para>Logs a formatted message with customized informations (defined in CDebugCenter) of the caller of this message.</para>
+            </summary>
+            <param name="logType">The type of the log message.</param>
+            <param name="context">Object to which the message applies.</param>
+            <param name="format">A composite format string.</param>
+            <param name="args">Format arguments.</param>
+        </member>
+        <member name="F:ChuDebug.EUnityLogType.Error">
+            <summary>
+              <para>LogType used for Errors.</para>
+            </summary>
+        </member>
+        <member name="F:ChuDebug.EUnityLogType.Assert">
+            <summary>
+              <para>LogType used for Asserts. (These could also indicate an error inside Unity itself.)</para>
+            </summary>
+        </member>
+        <member name="F:ChuDebug.EUnityLogType.Warning">
+            <summary>
+              <para>LogType used for Warnings.</para>
+            </summary>
+        </member>
+        <member name="F:ChuDebug.EUnityLogType.Log">
+            <summary>
+              <para>LogType used for regular log messages.</para>
+            </summary>
+        </member>
+        <member name="F:ChuDebug.EUnityLogType.Exception">
+            <summary>
+              <para>LogType used for Exceptions.</para>
+            </summary>
+        </member>
+        <member name="T:ChuDebug.EnumMaskFieldDrawer">
+            <summary>
+            The unity editor property drawer of enum mask field.
+            </summary>
+        </member>
+        <member name="M:ChuDebug.EnumMaskFieldDrawer.OnGUI(UnityEngine.Rect,UnityEditor.SerializedProperty,UnityEngine.GUIContent)">
+            <summary>
+            Occurs when the GUI drawn.
+            </summary>
+        </member>
+        <member name="T:ChuDebug.EnumMaskAttribute">
+            <summary>
+            Use this property attribute to make a mask field for your enum member in the inspector.
+            </summary>
+        </member>
+        <member name="T:ChuDebug.DebugAttribute">
+            <summary>
+              <para>Specific the debug category for this class.</para>
+            </summary>
+        </member>
+        <member name="P:ChuDebug.DebugAttribute.DebugType">
+            <summary>
+            Gets the debug category.
+            </summary>
+            <value>The category.</value>
+        </member>
+        <member name="M:ChuDebug.DebugAttribute.#ctor(ChuDebug.EDebugType)">
+            <summary>
+            Constructor of the <see cref="T:ChuDebug.DebugAttribute"/> class.
+            </summary>
+            <param name="type">Assign the debug category.</param>
+        </member>
+    </members>
+</doc>

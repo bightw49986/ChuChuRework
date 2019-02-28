@@ -1,4 +1,4 @@
-﻿namespace example
+﻿namespace ChuChu
 {
 
         #region Members

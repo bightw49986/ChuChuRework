@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using ChuDebug;
 
 namespace ChuChu.Framework
 {
-    //All game event are defined here.
+    /// <summary>
+    /// Defines all critical game event.
+    /// </summary>
+    [Debug(EDebugType.Event)]
     public sealed class GameEventSystem
     {
         #region Singleton
@@ -24,52 +26,55 @@ namespace ChuChu.Framework
 
         #endregion
         #region General game event
+        [Debug(EDebugType.Event)]
         public sealed class GeneralGameEvent
         {
             public event Action AppInited; //Triggered when app start
-            public void OnAppInited() { if (AppInited != null) AppInited();Debug.Log("[Event]: Game Initialized."); }
+            public void OnAppInited() { if (AppInited != null) AppInited();Debug.Log("Game Initialized."); }
 
             public event Action BeginLoading; //Triggered by clicking 開始遊戲
-            public void OnBeginLoading() { if (BeginLoading != null) BeginLoading(); Debug.Log("[Event]: Begin Loading..."); }
+            public void OnBeginLoading() { if (BeginLoading != null) BeginLoading(); Debug.Log("Begin Loading..."); }
 
             public event Action FinishedLoading; //Triggered by finish loading game scene 90 %
-            public void OnFinishedLoading() { if (FinishedLoading != null) FinishedLoading(); Debug.Log("[Event]: Finish Loading."); }
+            public void OnFinishedLoading() { if (FinishedLoading != null) FinishedLoading(); Debug.Log("Finish Loading."); }
 
             public event Action EnteredGameScene; //Triggered by clicking 按任意鍵繼續
-            public void OnEnteredGameScene() { if (EnteredGameScene != null) EnteredGameScene(); Debug.Log("[Event]: Entered main scene."); }
+            public void OnEnteredGameScene() { if (EnteredGameScene != null) EnteredGameScene(); Debug.Log("Entered main scene."); }
 
             public event Action OpeningAnimFinished; //Triggered when entry animation finished
-            public void OnOpeningAnimFinished() { if (OpeningAnimFinished != null) OpeningAnimFinished(); Debug.Log("[Event]: Game started."); }
+            public void OnOpeningAnimFinished() { if (OpeningAnimFinished != null) OpeningAnimFinished(); Debug.Log("Game started."); }
 
             public event Action PlayerDied; //Triggered when user died
-            public void OnPlayerDied() { if (PlayerDied != null) PlayerDied(); Debug.Log("[Event]: Game failed."); }
+            public void OnPlayerDied() { if (PlayerDied != null) PlayerDied(); Debug.Log("Game failed."); }
 
             public event Action BossDoorTriggered; //Triggered by touching the boss door
-            public void OnBossDoorTriggered() { if (BossDoorTriggered != null) BossDoorTriggered(); Debug.Log("[Event]: Enter boss room."); }
+            public void OnBossDoorTriggered() { if (BossDoorTriggered != null) BossDoorTriggered(); Debug.Log("Enter boss room."); }
 
             public event Action BossFightStarted; //Triggered when boss fight started.
-            public void OnBossFightStarted() { if (BossFightStarted != null) BossFightStarted(); Debug.Log("[Event]: Boss fight started."); }
+            public void OnBossFightStarted() { if (BossFightStarted != null) BossFightStarted(); Debug.Log("Boss fight started."); }
 
             public event Action BossDied; //Triggered when boss be killed
-            public void OnBossDied() { if (BossDied != null) BossDied(); Debug.Log("[Event]: Victoryed."); }
+            public void OnBossDied() { if (BossDied != null) BossDied(); Debug.Log("Victoryed."); }
 
             public event Action VictoryAnimFinished; //Triggered when ending animation finished
-            public void OnVictoryAnimFinished() { if (VictoryAnimFinished != null) VictoryAnimFinished(); Debug.Log("[Event]: Ending animation done."); }
+            public void OnVictoryAnimFinished() { if (VictoryAnimFinished != null) VictoryAnimFinished(); Debug.Log("Ending animation done."); }
 
             public event Action BackToTitle; //Triggered when back to title
-            public void OnBackToMenu() { if (BackToTitle != null) BackToTitle(); Debug.Log("[Event]: Back to title."); }
+            public void OnBackToMenu() { if (BackToTitle != null) BackToTitle(); Debug.Log("Back to title."); }
         }
         #endregion
 
         #region Load scene event
+        [Debug(EDebugType.Event)]
         public sealed class SceneLoadingEvent
         {
             public event Action<UnityEngine.SceneManagement.Scene> SceneLoaded;
-            public void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene) { if (SceneLoaded != null) SceneLoaded(scene); Debug.Log("[Event][Load scene]: Scene has changed to: " + scene.name); }
+            public void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene) { if (SceneLoaded != null) SceneLoaded(scene); Debug.Log("(Scene loaded.) Scene has changed to: " + scene.name); }
         }
         #endregion
 
         #region Gravity and GroundCheck
+        [Debug(EDebugType.Event)]
         public sealed class GravityAndGroundCheckCallback
         {
             public event Action GrounCheckBegan;
@@ -84,6 +89,7 @@ namespace ChuChu.Framework
         #endregion
 
         #region UI system event
+        [Debug(EDebugType.Event)]
         public sealed class UISystemEvent
         {
             public event Action ShowAllCalled;

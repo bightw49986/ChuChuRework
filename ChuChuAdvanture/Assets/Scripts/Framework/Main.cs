@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ChuChu.Framework.Scene;
+using ChuChu.Framework.UI;
+using ChuDebug;
 
 
 namespace ChuChu.Framework
@@ -10,6 +12,7 @@ namespace ChuChu.Framework
     /// <summary>
     /// The main class for the app, entry point for all systems.
     /// </summary>
+    [Debug(EDebugType.Main)]
     public class Main : MonoBehaviour
     {
         #region Members
@@ -36,6 +39,10 @@ namespace ChuChu.Framework
             }
             InitializeAllSystems();
         }
+        private void Start()
+        {
+            UIManager.ScreenFadeIn(() => { });
+        }
         #endregion
 
         #region Public Methods
@@ -51,9 +58,7 @@ namespace ChuChu.Framework
             IsFirstEnterApp = false;
         }
 
-        /// <summary>
-        /// Initialize the Scene manager system.
-        /// </summary>
+        //Init SceneManager
         private bool InitSceneManager()
         {
             if (m_SceneConfig == null)
@@ -70,9 +75,7 @@ namespace ChuChu.Framework
             return true;
         }
 
-        /// <summary>
-        /// Initialize the Game event system.
-        /// </summary>
+        //Init GameEventSystem
         private bool InitGameEventSystem()
         {
             GameEventSystem gameEventSystem = new GameEventSystem(); //GameEventSystem
@@ -80,27 +83,15 @@ namespace ChuChu.Framework
             return true;
         }
 
-        /// <summary>
-        /// Initialize the UI system.
-        /// </summary>
+        //Init UIManager
         private bool InitUIManager()
         {
-            GameObject uiManager = Resources.Load(StringTable.UI.RootCanvasPath) as GameObject; //UIManager
+            GameObject uiManager = Resources.Load(StringTable.UI.UIManager) as GameObject; //UIManager
             Instantiate(uiManager);
             return true;
         }
 
-
         #endregion
-
-
-
-
-
-
-
-
-
     }
 }
 

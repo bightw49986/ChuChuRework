@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System;
+using ChuChu;
 
-
+#region Structs
 /// <summary>
 /// Suspend the coroutine execution for given amount of frames.
 /// </summary>
@@ -33,15 +35,10 @@ public class WaitForFrames : IEnumerator
         m_iCount = -1;
     }
 }
+#endregion
 
-public enum RenderMode
-{
-    Opaque,
-    Cutout,
-    Fade,        // Old school alpha-blending mode, fresnel does not affect amount of transparency
-    Transparent // Physically plausible transparency mode, implemented as alpha pre-multiply
-}
 
+#region Extensions
 public static class Extensions
 {
     /// <summary>
@@ -49,9 +46,9 @@ public static class Extensions
     /// </summary>
     /// <returns>The child found. (Return null if failed.)</returns>
     /// <param name="useDFS">If set to <c>true</c> use depth-first-search instead.</param>
-    public static Transform FindDeepChild(this Transform parent,string name, bool useDFS = false)
+    public static Transform FindDeepChild(this Transform parent, string name, bool useDFS = false)
     {
-        if(useDFS)
+        if (useDFS)
         {
             foreach (Transform child in parent)
             {
@@ -81,11 +78,11 @@ public static class Extensions
     /// <summary>
     /// Change the rendering mode and set corresponding keywords.
     /// </summary>
-    public static void SetRenderMode(this Material material, RenderMode mode)
+    public static void SetRenderMode(this Material material, ERenderMode mode)
     {
         switch (mode)
         {
-            case RenderMode.Opaque:
+            case ERenderMode.Opaque:
                 material.SetOverrideTag("RenderType", "");
                 material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
                 material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
@@ -95,7 +92,7 @@ public static class Extensions
                 material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                 material.renderQueue = -1;
                 break;
-            case RenderMode.Cutout:
+            case ERenderMode.Cutout:
                 material.SetOverrideTag("RenderType", "TransparentCutout");
                 material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
                 material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
@@ -105,7 +102,7 @@ public static class Extensions
                 material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                 material.renderQueue = 2450;
                 break;
-            case RenderMode.Fade:
+            case ERenderMode.Fade:
                 material.SetOverrideTag("RenderType", "Transparent");
                 material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
                 material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
@@ -115,7 +112,7 @@ public static class Extensions
                 material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                 material.renderQueue = 3000;
                 break;
-            case RenderMode.Transparent:
+            case ERenderMode.Transparent:
                 material.SetOverrideTag("RenderType", "Transparent");
                 material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
                 material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
@@ -128,3 +125,5 @@ public static class Extensions
         }
     }
 }
+#endregion
+

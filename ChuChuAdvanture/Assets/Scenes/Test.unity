@@ -364,7 +364,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1407862637240536, guid: b645d216fc05f6a47a53814f3fb9b1d2, type: 3}
       propertyPath: m_Name
-      value: Character_Color_05
+      value: Chu Chu
       objectReference: {fileID: 0}
     - target: {fileID: 4971682444331964, guid: b645d216fc05f6a47a53814f3fb9b1d2, type: 3}
       propertyPath: m_LocalPosition.x

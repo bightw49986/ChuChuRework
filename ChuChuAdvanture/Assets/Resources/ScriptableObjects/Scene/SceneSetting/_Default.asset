@@ -9,11 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25fa7ffcc6e964e5e9219082026c3832, type: 3}
+  m_Script: {fileID: 11500000, guid: 556c91f5ebd214757b34ae2be4bf2126, type: 3}
   m_Name: _Default
   m_EditorClassIdentifier: 
-  ID: 0
-  UIConfig: {fileID: 0}
-  DynamicObjectConfig: {fileID: 0}
-  FXEventConfig: {fileID: 0}
-  ApplyGravity: 0
+  SceneID: 0
+  UISetting: {fileID: 0}
+  DynamicObjectSetting: {fileID: 0}
+  FXSetting: {fileID: 0}
+  NPCSetting: {fileID: 0}
+  Physic: 0
+  Player: 0
+  NPC: 0
+  FXSystem: 0
+  DynamicObject: 0

@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ChuChu.Framework.UI;
+using ChuDebug;
 
 namespace ChuChu.Framework.Scene
 {
-    public enum ChuChuScene {None = 0,Title,Loading,Game}
-
     /// <summary>
     /// Manager for scene management.
     /// </summary>
+    [Debug(EDebugType.Scene)]
     public sealed class SceneManager
     {
         #region Singleton
@@ -20,11 +21,12 @@ namespace ChuChu.Framework.Scene
 
         #region Members
         private SceneSettingConfiguration m_SceneConfig;
+        private SceneSettings m_CurrentSetting;
         #endregion
 
         #region Properties
         public string ActiveScene { get { return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name; } }
-        public ChuChuScene CurrentScene { get { return GetSceneByName(ActiveScene); } }
+        public EScene CurrentScene { get { return GetSceneByName(ActiveScene); } }
         #endregion
 
         #region Life cycle and event stuff
@@ -46,66 +48,40 @@ namespace ChuChu.Framework.Scene
         #endregion
 
         #region Public Methods
-        public void LoadScene(ChuChuScene scene)
+        public void LoadScene(EScene scene)
         {
-            SceneSettings sceneSetting = LoadSceneSetting(scene);
-            if (Main.Instance.IsFirstEnterApp)
+            SceneSettings newSetting = LoadSceneSetting(scene);
+            if (!Main.Instance.IsFirstEnterApp)
             {
-                //讀UI
-                if (sceneSetting.UISetting != null && sceneSetting.UISetting.IsEmpty == false)
-                {
-                    foreach (var obj in sceneSetting.UISetting.ObjectSets)
-                    {
-                        for (int i = 0; i < obj.Amount - 1; i++)
-                        {
-                            GameObject uiManager;
-                            GameObject go;
-                            if (uiManager = GameObject.Find(StringTable.UI.RootCanvasPath))
-                                go = UnityEngine.Object.Instantiate(obj.Prefab.GameObject, uiManager.transform);
-                            else
-                            {
-                                go = UnityEngine.Object.Instantiate(obj.Prefab.GameObject, UIManager.Instance.transform);
-                            }
-                            go.SetActive(obj.ActiveOnCreate);
-                        }
-                    }
-                }
-                //讀動態物件
-                //讀特效
-                if (sceneSetting.FXSetting != null && sceneSetting.FXSetting.IsEmpty == false)
-                {
-                    foreach (var obj in sceneSetting.FXSetting.ObjectSets)
-                    {
-                        for (int i = 0; i < obj.Amount - 1; i++)
-                        {
-                        }
-                    }
-                }
-                //讀怪物
-                //讀玩家
-                //讀Boss
-                //啟動其他東東
+                CompareCurrentSettings(newSetting);
             }
-            else
+            m_CurrentSetting = newSetting;
+            CalculateTask(m_CurrentSetting);
+            LoadTask();
+        }
+        public EScene GetSceneByName(string name)
+        {
+            foreach (var e in (EScene[])Enum.GetValues(typeof(EScene)))
             {
-                //比較當前場景
-                //計算工作
-                //批次讀取
+                if (e.ToString() == name)
+                {
+                    return e;
+                }
             }
-
+            return EScene.None;
         }
         #endregion
 
         #region Private Methods
-        private SceneSettings LoadSceneSetting(ChuChuScene scene)
+        private SceneSettings LoadSceneSetting(EScene scene)
         {
             switch (scene)
             {
-                case ChuChuScene.Title:
+                case EScene.Title:
                     return m_SceneConfig.Title;
-                case ChuChuScene.Loading:
+                case EScene.Loading:
                     return m_SceneConfig.Loading;
-                case ChuChuScene.Game:
+                case EScene.Game:
                     return m_SceneConfig.Game;
 
                 default:
@@ -113,21 +89,20 @@ namespace ChuChu.Framework.Scene
             }
         }
 
-        public ChuChuScene GetSceneByName(string name)
+        private void CompareCurrentSettings(SceneSettings newSetting)
         {
-            foreach (var e in (ChuChuScene[])Enum.GetValues(typeof(ChuChuScene)))
-            {
-                if (e.ToString() == name)
-                {
-                    return e;
-                }
-            }
-            return ChuChuScene.None;
+
+        }
+
+        private void CalculateTask(SceneSettings newSetting)
+        {
+
+        }
+
+        private void LoadTask()
+        {
+
         }
         #endregion
-
-
-
-
     }
 }

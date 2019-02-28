@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ChuDebug;
 using UnityEngine;
 
-namespace ChuChu.Framework.Physic
+namespace ChuChu.Framework.Physics
 {
     public interface IGroundCheckReceiver
     {
@@ -47,6 +48,7 @@ namespace ChuChu.Framework.Physic
         HitOn2ndAttempt 
      }
 
+    [Debug(EDebugType.Physics)]
     public class GroundCheckSystem : MonoBehaviour
     {
         public static GroundCheckSystem Instance;
@@ -187,11 +189,11 @@ namespace ChuChu.Framework.Physic
             }
             Ray ray = new Ray(receiver.GroundCheckPoint, Vector3.down);
             RaycastHit hitInfo;
-            if (Physics.Raycast(ray, out hitInfo, receiver.RaycastLength, receiver.GroundLayer))
+            if (UnityEngine.Physics.Raycast(ray, out hitInfo, receiver.RaycastLength, receiver.GroundLayer))
             {
                 receiver.Result = new GroundCheckResult { IsGrounded = true, HitInfo = hitInfo, GroundPosition = hitInfo.point, ResultType = EGroundCheckResultType.HitOn1stAttempt };
             }
-            else if (Physics.Raycast(ray, out hitInfo, 1000f, receiver.GroundLayer))
+            else if (UnityEngine.Physics.Raycast(ray, out hitInfo, 1000f, receiver.GroundLayer))
             {
                 receiver.Result = new GroundCheckResult { IsGrounded = false, HitInfo = hitInfo, GroundPosition = hitInfo.point, ResultType = EGroundCheckResultType.HitOn2ndAttempt };
             }

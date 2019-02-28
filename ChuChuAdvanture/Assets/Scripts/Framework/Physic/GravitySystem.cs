@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using ChuDebug;
 
-namespace ChuChu.Framework.Physic
+namespace ChuChu.Framework.Physics
 {
     /// <summary>
     /// Register to GravitySystem then when the gravity applys, this object will receive callback.
@@ -18,6 +19,7 @@ namespace ChuChu.Framework.Physic
     /// <summary>
     /// System that accept IGravityReceiver and triggers the gravity event 
     /// </summary>
+    [Debug(EDebugType.Physics)]
     public sealed class GravitySystem : MonoBehaviour
     {
         public static GravitySystem Instance; //Singleton

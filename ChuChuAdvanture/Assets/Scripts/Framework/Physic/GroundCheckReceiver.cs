@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ChuDebug;
 using UnityEngine;
 
-namespace ChuChu.Framework.Physic
+namespace ChuChu.Framework.Physics
 {
+    [Debug(EDebugType.Physics)]
     public class GroundCheckReceiver : MonoBehaviour, IGroundCheckReceiver
     {
         #region Members

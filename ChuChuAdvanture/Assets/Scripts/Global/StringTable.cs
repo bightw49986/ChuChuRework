@@ -15,6 +15,7 @@ public static class StringTable
 
     public struct UI
     {
-        public static readonly string RootCanvasPath = "Prefabs/UI/Root Canvas";
+        public static readonly string UIManager = "Prefabs/UI/UIManager";
+        public static readonly string FadingImage = "FadingImage";
     }
 }
